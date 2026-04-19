@@ -68,11 +68,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 3
 .hc-pill{font-family:-apple-system,Segoe UI,sans-serif;font-size:6px;font-weight:600;}
 /* Wires */
 .hc-wire{fill:none;stroke-width:1.3;stroke-linecap:round;}
-.hc-wire-label{font-family:-apple-system,Segoe UI,sans-serif;font-size:8px;font-style:italic;text-anchor:middle;paint-order:stroke;stroke:rgba(255,255,255,0.9);stroke-width:2.5px;stroke-linejoin:round;}
-/* Floating group-title pill (matches the real canvas tab handle) */
-.hc-group-pill{fill:#fafaf7;stroke:rgba(0,0,0,0.18);stroke-width:0.5;}
-.hc-group-pill-text{font-family:-apple-system,Segoe UI,sans-serif;font-size:9px;fill:#1a1a18;font-weight:500;text-anchor:middle;}
-.hc-group-pill-arrow{fill:#fafaf7;stroke:rgba(0,0,0,0.18);stroke-width:0.5;}
+.hc-wire-label{font-family:-apple-system,Segoe UI,sans-serif;font-size:9px;font-style:italic;text-anchor:middle;}
 
 /* Section */
 section{padding:64px 0;}
@@ -162,41 +158,43 @@ footer{padding:40px 0;text-align:center;font-size:12px;color:var(--tx3);border-t
         <path class="hc-group-hdr" d="M 30,48 a 8,8 0 0 1 8,-8 h 324 a 8,8 0 0 1 8,8 v 18 h -340 z" fill="#D85A30"/>
         <text class="hc-group-label" x="44" y="58">Product</text>
         <path class="hc-group-chev" d="M 356 52 l 5 5 l 5 -5"/>
-        <!-- Floating group-title pill (tab handle) -->
-        <rect class="hc-group-pill" x="166" y="20" width="68" height="15" rx="4"/>
-        <text class="hc-group-pill-text" x="200" y="31">Product</text>
-        <path class="hc-group-pill-arrow" d="M 196 35 L 204 35 L 200 40 z"/>
 
         <!-- ── GROUP 2: Go-to-market (idea-colored header) ── -->
         <rect class="hc-group-body" x="490" y="60" width="380" height="230" rx="8" fill="rgba(55,138,221,0.10)"/>
         <path class="hc-group-hdr" d="M 490,68 a 8,8 0 0 1 8,-8 h 364 a 8,8 0 0 1 8,8 v 18 h -380 z" fill="#378ADD"/>
         <text class="hc-group-label" x="504" y="78">Go-to-market</text>
         <path class="hc-group-chev" d="M 856 72 l 5 5 l 5 -5"/>
-        <!-- Floating group-title pill -->
-        <rect class="hc-group-pill" x="640" y="40" width="80" height="15" rx="4"/>
-        <text class="hc-group-pill-text" x="680" y="51">Go-to-market</text>
-        <path class="hc-group-pill-arrow" d="M 676 55 L 684 55 L 680 60 z"/>
 
-        <!-- ── WIRES (drawn before nodes so they sit behind) ── -->
-        <!-- 1. SUPPORTS: Interviews R(265,241) → Pricing model L(510,121) -->
-        <path class="hc-wire" d="M 265 241 C 387 241 387 121 510 121" stroke="#0891b2"/>
-        <text class="hc-wire-label" x="387" y="184" fill="#0891b2">supports</text>
+        <!-- ── WIRES — labels follow the curve via textPath ── -->
+        <!-- 1. SUPPORTS: Interviews → Pricing model -->
+        <path id="w1" class="hc-wire" d="M 265 241 C 387 241 387 121 510 121" stroke="#0891b2"/>
+        <text class="hc-wire-label" fill="#0891b2" dy="-2">
+          <textPath href="#w1" startOffset="50%">supports</textPath>
+        </text>
 
-        <!-- 2. BLOCKS: Target customer? R(340,101) → Landing page R(340,171), loop outside right, crossbar end -->
-        <path class="hc-wire" d="M 340 101 C 392 108 392 164 340 171" stroke="#e11d48" marker-end="url(#m-crossbar)"/>
-        <text class="hc-wire-label" x="396" y="140" fill="#e11d48">blocks</text>
+        <!-- 2. BLOCKS: Target customer? → Landing page, loop right, crossbar end -->
+        <path id="w2" class="hc-wire" d="M 340 101 C 392 108 392 164 340 171" stroke="#e11d48" marker-end="url(#m-crossbar)"/>
+        <text class="hc-wire-label" fill="#e11d48" dy="-2">
+          <textPath href="#w2" startOffset="50%">blocks</textPath>
+        </text>
 
-        <!-- 3. SPAWNED: Core product R(190,101) → Referral engine L(680,121), arrow end -->
-        <path class="hc-wire" d="M 190 101 C 400 101 470 121 680 121" stroke="#65a30d" marker-end="url(#m-arrow)"/>
-        <text class="hc-wire-label" x="435" y="108" fill="#65a30d">spawned</text>
+        <!-- 3. SPAWNED: Core product → Referral engine, arrow end -->
+        <path id="w3" class="hc-wire" d="M 190 101 C 400 101 470 121 680 121" stroke="#65a30d" marker-end="url(#m-arrow)"/>
+        <text class="hc-wire-label" fill="#65a30d" dy="-2">
+          <textPath href="#w3" startOffset="50%">spawned</textPath>
+        </text>
 
-        <!-- 4. DEPENDS_ON: Recruit beta users L(510,191) → Interviews R(265,241), dashed amber -->
-        <path class="hc-wire" d="M 510 191 C 387 191 387 241 265 241" stroke="#d97706" stroke-dasharray="7,4"/>
-        <text class="hc-wire-label" x="387" y="219" fill="#d97706">depends on</text>
+        <!-- 4. DEPENDS_ON: Recruit beta users → Interviews, dashed amber -->
+        <path id="w4" class="hc-wire" d="M 510 191 C 387 191 387 241 265 241" stroke="#d97706" stroke-dasharray="7,4"/>
+        <text class="hc-wire-label" fill="#d97706" dy="-2">
+          <textPath href="#w4" startOffset="50%">depends on</textPath>
+        </text>
 
-        <!-- 5. PROMOTED_TO: Target customer? L(200,101) → Prosumer segment L(50,171) inner-left, dashed purple -->
-        <path class="hc-wire" d="M 200 101 C 150 101 100 171 50 171" stroke="#7c3aed" stroke-dasharray="7,4"/>
-        <text class="hc-wire-label" x="119" y="140" fill="#7c3aed">promoted to</text>
+        <!-- 5. PROMOTED_TO: Target customer? → Prosumer segment, dashed purple -->
+        <path id="w5" class="hc-wire" d="M 200 101 C 150 101 100 171 50 171" stroke="#7c3aed" stroke-dasharray="7,4"/>
+        <text class="hc-wire-label" fill="#7c3aed" dy="-2">
+          <textPath href="#w5" startOffset="50%">promoted to</textPath>
+        </text>
 
         <!-- ── NODES: Group 1 ── -->
         <!-- Core product concept (idea) -->

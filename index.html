@@ -49,8 +49,8 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 3
 
 /* Hero visual — mini canvas */
 .hero-canvas{
-  position:relative;max-width:900px;margin:0 auto;
-  height:360px;border:1px solid var(--br);border-radius:16px;
+  position:relative;width:100%;margin:0 auto;
+  height:420px;border:1px solid var(--br);border-radius:16px;
   overflow:hidden;box-shadow:0 20px 60px -20px rgba(0,0,0,0.15);
   background:rgba(255,255,255,0.45);
 }
@@ -68,8 +68,11 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 3
 .hc-pill{font-family:-apple-system,Segoe UI,sans-serif;font-size:6px;font-weight:600;}
 /* Wires */
 .hc-wire{fill:none;stroke-width:1.3;stroke-linecap:round;}
-.hc-wire-label-bg{stroke:none;}
-.hc-wire-label{font-family:-apple-system,Segoe UI,sans-serif;font-size:6px;font-weight:600;fill:#fff;letter-spacing:0.4px;text-transform:uppercase;text-anchor:middle;}
+.hc-wire-label{font-family:-apple-system,Segoe UI,sans-serif;font-size:8px;font-style:italic;text-anchor:middle;paint-order:stroke;stroke:rgba(255,255,255,0.9);stroke-width:2.5px;stroke-linejoin:round;}
+/* Floating group-title pill (matches the real canvas tab handle) */
+.hc-group-pill{fill:#fafaf7;stroke:rgba(0,0,0,0.18);stroke-width:0.5;}
+.hc-group-pill-text{font-family:-apple-system,Segoe UI,sans-serif;font-size:9px;fill:#1a1a18;font-weight:500;text-anchor:middle;}
+.hc-group-pill-arrow{fill:#fafaf7;stroke:rgba(0,0,0,0.18);stroke-width:0.5;}
 
 /* Section */
 section{padding:64px 0;}
@@ -80,20 +83,20 @@ section p.lede{font-size:17px;color:var(--tx2);max-width:620px;line-height:1.6;m
 /* Problem */
 .problem{padding-top:40px;}
 .problem-list{list-style:none;margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
-.problem-list li{background:var(--bg3);padding:20px 22px;border-radius:var(--r);border:1px solid var(--br);font-size:14px;color:var(--tx2);}
+.problem-list li{background:rgba(255,255,255,0.45);padding:20px 22px;border-radius:var(--r);border:1px solid var(--br);font-size:14px;color:var(--tx2);}
 .problem-list li strong{color:var(--tx);display:block;margin-bottom:4px;font-weight:500;}
 
 /* Two surfaces */
 .two-surfaces{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;}
 @media(max-width:700px){.two-surfaces{grid-template-columns:1fr;}}
-.surface{background:var(--bg3);padding:32px;border-radius:var(--r);border:1px solid var(--br);position:relative;overflow:hidden;}
+.surface{background:rgba(255,255,255,0.45);padding:32px;border-radius:var(--r);border:1px solid var(--br);position:relative;overflow:hidden;}
 .surface h3{font-size:20px;font-weight:500;letter-spacing:-0.015em;margin-bottom:8px;}
 .surface p{font-size:14px;color:var(--tx2);line-height:1.6;}
 .surface .surface-label{position:absolute;top:14px;right:16px;font-size:10px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:0.08em;}
 
 /* Features */
 .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:36px;}
-.feature{padding:28px 26px;border-radius:var(--r);background:var(--bg3);border:1px solid var(--br);}
+.feature{padding:28px 26px;border-radius:var(--r);background:rgba(255,255,255,0.45);border:1px solid var(--br);}
 .feature h3{font-size:16px;font-weight:500;margin-bottom:8px;letter-spacing:-0.01em;}
 .feature p{font-size:13px;color:var(--tx2);line-height:1.6;}
 .feature-icon{width:32px;height:32px;border-radius:6px;background:var(--accent);margin-bottom:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:14px;}
@@ -154,103 +157,106 @@ footer{padding:40px 0;text-align:center;font-size:12px;color:var(--tx3);border-t
           </filter>
         </defs>
 
-        <!-- ── GROUP 1: Product direction (decision-colored header) ── -->
+        <!-- ── GROUP 1: Product (decision-colored header) ── -->
         <rect class="hc-group-body" x="30" y="40" width="340" height="270" rx="8" fill="rgba(216,90,48,0.10)"/>
         <path class="hc-group-hdr" d="M 30,48 a 8,8 0 0 1 8,-8 h 324 a 8,8 0 0 1 8,8 v 18 h -340 z" fill="#D85A30"/>
-        <text class="hc-group-label" x="44" y="58">Product direction</text>
+        <text class="hc-group-label" x="44" y="58">Product</text>
         <path class="hc-group-chev" d="M 356 52 l 5 5 l 5 -5"/>
+        <!-- Floating group-title pill (tab handle) -->
+        <rect class="hc-group-pill" x="166" y="20" width="68" height="15" rx="4"/>
+        <text class="hc-group-pill-text" x="200" y="31">Product</text>
+        <path class="hc-group-pill-arrow" d="M 196 35 L 204 35 L 200 40 z"/>
 
         <!-- ── GROUP 2: Go-to-market (idea-colored header) ── -->
         <rect class="hc-group-body" x="490" y="60" width="380" height="230" rx="8" fill="rgba(55,138,221,0.10)"/>
         <path class="hc-group-hdr" d="M 490,68 a 8,8 0 0 1 8,-8 h 364 a 8,8 0 0 1 8,8 v 18 h -380 z" fill="#378ADD"/>
         <text class="hc-group-label" x="504" y="78">Go-to-market</text>
         <path class="hc-group-chev" d="M 856 72 l 5 5 l 5 -5"/>
+        <!-- Floating group-title pill -->
+        <rect class="hc-group-pill" x="640" y="40" width="80" height="15" rx="4"/>
+        <text class="hc-group-pill-text" x="680" y="51">Go-to-market</text>
+        <path class="hc-group-pill-arrow" d="M 676 55 L 684 55 L 680 60 z"/>
 
         <!-- ── WIRES (drawn before nodes so they sit behind) ── -->
-        <!-- 1. SUPPORTS: Interview R(265,241) → Price Q L(510,121) -->
+        <!-- 1. SUPPORTS: Interviews R(265,241) → Pricing model L(510,121) -->
         <path class="hc-wire" d="M 265 241 C 387 241 387 121 510 121" stroke="#0891b2"/>
-        <rect class="hc-wire-label-bg" x="364" y="174" width="46" height="13" rx="6.5" fill="#0891b2"/>
-        <text class="hc-wire-label" x="387" y="183">supports</text>
+        <text class="hc-wire-label" x="387" y="184" fill="#0891b2">supports</text>
 
-        <!-- 2. BLOCKS: Who buys R(340,101) → Landing page R(340,171), loop outside right, crossbar end -->
+        <!-- 2. BLOCKS: Target customer? R(340,101) → Landing page R(340,171), loop outside right, crossbar end -->
         <path class="hc-wire" d="M 340 101 C 392 108 392 164 340 171" stroke="#e11d48" marker-end="url(#m-crossbar)"/>
-        <rect class="hc-wire-label-bg" x="373" y="129" width="36" height="13" rx="6.5" fill="#e11d48"/>
-        <text class="hc-wire-label" x="391" y="138">blocks</text>
+        <text class="hc-wire-label" x="396" y="140" fill="#e11d48">blocks</text>
 
-        <!-- 3. SPAWNED: Single-foot R(190,101) → PT referral loop L(680,121), arrow end -->
+        <!-- 3. SPAWNED: Core product R(190,101) → Referral engine L(680,121), arrow end -->
         <path class="hc-wire" d="M 190 101 C 400 101 470 121 680 121" stroke="#65a30d" marker-end="url(#m-arrow)"/>
-        <rect class="hc-wire-label-bg" x="412" y="98" width="46" height="13" rx="6.5" fill="#65a30d"/>
-        <text class="hc-wire-label" x="435" y="107">spawned</text>
+        <text class="hc-wire-label" x="435" y="108" fill="#65a30d">spawned</text>
 
-        <!-- 4. DEPENDS_ON: Recruit PTs L(510,191) → Interview R(265,241), dashed amber -->
+        <!-- 4. DEPENDS_ON: Recruit beta users L(510,191) → Interviews R(265,241), dashed amber -->
         <path class="hc-wire" d="M 510 191 C 387 191 387 241 265 241" stroke="#d97706" stroke-dasharray="7,4"/>
-        <rect class="hc-wire-label-bg" x="358" y="209" width="58" height="13" rx="6.5" fill="#d97706"/>
-        <text class="hc-wire-label" x="387" y="218">depends on</text>
+        <text class="hc-wire-label" x="387" y="219" fill="#d97706">depends on</text>
 
-        <!-- 5. PROMOTED_TO: Who buys L(200,101) → Target home users L(50,171) inner-left, dashed purple -->
+        <!-- 5. PROMOTED_TO: Target customer? L(200,101) → Prosumer segment L(50,171) inner-left, dashed purple -->
         <path class="hc-wire" d="M 200 101 C 150 101 100 171 50 171" stroke="#7c3aed" stroke-dasharray="7,4"/>
-        <rect class="hc-wire-label-bg" x="86" y="129" width="66" height="13" rx="6.5" fill="#7c3aed"/>
-        <text class="hc-wire-label" x="119" y="138">promoted to</text>
+        <text class="hc-wire-label" x="119" y="140" fill="#7c3aed">promoted to</text>
 
         <!-- ── NODES: Group 1 ── -->
-        <!-- Single-foot platform (idea) -->
+        <!-- Core product concept (idea) -->
         <g filter="url(#ns)">
           <rect class="hc-node" x="50" y="78" width="140" height="46" rx="6"/>
           <rect class="hc-node-stripe" x="50" y="78" width="3.5" height="46" rx="1.5" fill="#378ADD"/>
-          <text class="hc-label" x="60" y="94">Single-foot platform</text>
+          <text class="hc-label" x="60" y="94">Core product concept</text>
           <text class="hc-type" x="60" y="116" fill="#378ADD">IDEA</text>
         </g>
-        <!-- Who buys it first? (question) -->
+        <!-- Who's the first customer? (question) -->
         <g filter="url(#ns)">
           <rect class="hc-node" x="200" y="78" width="140" height="46" rx="6"/>
           <rect class="hc-node-stripe" x="200" y="78" width="3.5" height="46" rx="1.5" fill="#E8820C"/>
-          <text class="hc-label" x="210" y="94">Who buys it first?</text>
+          <text class="hc-label" x="210" y="94">Who's the first customer?</text>
           <text class="hc-type" x="210" y="116" fill="#E8820C">QUESTION</text>
         </g>
-        <!-- Target: home users (decision) -->
+        <!-- Target: prosumer segment (decision) -->
         <g filter="url(#ns)">
           <rect class="hc-node" x="50" y="148" width="140" height="46" rx="6"/>
           <rect class="hc-node-stripe" x="50" y="148" width="3.5" height="46" rx="1.5" fill="#D85A30"/>
-          <text class="hc-label" x="60" y="164">Target: home users</text>
+          <text class="hc-label" x="60" y="164">Target: prosumer segment</text>
           <text class="hc-type" x="60" y="186" fill="#D85A30">DECISION</text>
         </g>
-        <!-- Draft landing page (action, status pill) -->
+        <!-- Ship landing page (action, status pill) -->
         <g filter="url(#ns)">
           <rect class="hc-node" x="200" y="148" width="140" height="46" rx="6"/>
           <rect class="hc-node-stripe" x="200" y="148" width="3.5" height="46" rx="1.5" fill="#C96B3A"/>
-          <text class="hc-label" x="210" y="164">Draft landing page</text>
+          <text class="hc-label" x="210" y="164">Ship landing page</text>
           <text class="hc-type" x="210" y="186" fill="#C96B3A">ACTION</text>
           <rect x="296" y="178" width="36" height="11" rx="5.5" fill="#FFF0E0"/>
           <text class="hc-pill" x="314" y="186" text-anchor="middle" fill="#7a3800">OPEN</text>
         </g>
-        <!-- Interview: 3 PTs (reference) -->
+        <!-- 5 customer interviews (reference) -->
         <g filter="url(#ns)">
           <rect class="hc-node" x="125" y="218" width="140" height="46" rx="6"/>
           <rect class="hc-node-stripe" x="125" y="218" width="3.5" height="46" rx="1.5" fill="#1D9E75"/>
-          <text class="hc-label" x="135" y="234">Interview: 3 PTs</text>
+          <text class="hc-label" x="135" y="234">5 customer interviews</text>
           <text class="hc-type" x="135" y="256" fill="#1D9E75">REFERENCE</text>
         </g>
 
         <!-- ── NODES: Group 2 ── -->
-        <!-- Price / unit cost? (question) -->
+        <!-- Pricing model? (question) -->
         <g filter="url(#ns)">
           <rect class="hc-node" x="510" y="98" width="150" height="46" rx="6"/>
           <rect class="hc-node-stripe" x="510" y="98" width="3.5" height="46" rx="1.5" fill="#E8820C"/>
-          <text class="hc-label" x="520" y="114">Price / unit cost?</text>
+          <text class="hc-label" x="520" y="114">Pricing model?</text>
           <text class="hc-type" x="520" y="136" fill="#E8820C">QUESTION</text>
         </g>
-        <!-- PT referral loop (idea) -->
+        <!-- Referral engine (idea) -->
         <g filter="url(#ns)">
           <rect class="hc-node" x="680" y="98" width="170" height="46" rx="6"/>
           <rect class="hc-node-stripe" x="680" y="98" width="3.5" height="46" rx="1.5" fill="#378ADD"/>
-          <text class="hc-label" x="690" y="114">PT referral loop</text>
+          <text class="hc-label" x="690" y="114">Referral engine</text>
           <text class="hc-type" x="690" y="136" fill="#378ADD">IDEA</text>
         </g>
-        <!-- Recruit 3 PTs for beta (action, status pill) -->
+        <!-- Recruit 10 beta users (action, status pill) -->
         <g filter="url(#ns)">
           <rect class="hc-node" x="510" y="168" width="340" height="46" rx="6"/>
           <rect class="hc-node-stripe" x="510" y="168" width="3.5" height="46" rx="1.5" fill="#C96B3A"/>
-          <text class="hc-label" x="520" y="184">Recruit 3 PTs for beta</text>
+          <text class="hc-label" x="520" y="184">Recruit 10 beta users</text>
           <text class="hc-type" x="520" y="206" fill="#C96B3A">ACTION</text>
           <rect x="790" y="198" width="58" height="11" rx="5.5" fill="#FAEEDA"/>
           <text class="hc-pill" x="819" y="206" text-anchor="middle" fill="#633806">IN PROGRESS</text>

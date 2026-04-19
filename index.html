@@ -52,7 +52,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 3
   position:relative;width:100%;margin:0 auto;
   height:420px;border:1px solid var(--br);border-radius:16px;
   overflow:hidden;box-shadow:0 20px 60px -20px rgba(0,0,0,0.15);
-  background:rgba(255,255,255,0.45);
+  background:rgba(255,255,255,0.25);
 }
 .hero-canvas svg{width:100%;height:100%;display:block;}
 /* Group body + header bar — body takes a light tint of the header color */
@@ -79,20 +79,20 @@ section p.lede{font-size:17px;color:var(--tx2);max-width:620px;line-height:1.6;m
 /* Problem */
 .problem{padding-top:40px;}
 .problem-list{list-style:none;margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
-.problem-list li{background:rgba(255,255,255,0.45);padding:20px 22px;border-radius:var(--r);border:1px solid var(--br);font-size:14px;color:var(--tx2);}
+.problem-list li{background:rgba(255,255,255,0.25);padding:20px 22px;border-radius:var(--r);border:1px solid var(--br);font-size:14px;color:var(--tx2);}
 .problem-list li strong{color:var(--tx);display:block;margin-bottom:4px;font-weight:500;}
 
 /* Two surfaces */
 .two-surfaces{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;}
 @media(max-width:700px){.two-surfaces{grid-template-columns:1fr;}}
-.surface{background:rgba(255,255,255,0.45);padding:32px;border-radius:var(--r);border:1px solid var(--br);position:relative;overflow:hidden;}
+.surface{background:rgba(255,255,255,0.25);padding:32px;border-radius:var(--r);border:1px solid var(--br);position:relative;overflow:hidden;}
 .surface h3{font-size:20px;font-weight:500;letter-spacing:-0.015em;margin-bottom:8px;}
 .surface p{font-size:14px;color:var(--tx2);line-height:1.6;}
 .surface .surface-label{position:absolute;top:14px;right:16px;font-size:10px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:0.08em;}
 
 /* Features */
 .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:36px;}
-.feature{padding:28px 26px;border-radius:var(--r);background:rgba(255,255,255,0.45);border:1px solid var(--br);}
+.feature{padding:28px 26px;border-radius:var(--r);background:rgba(255,255,255,0.25);border:1px solid var(--br);}
 .feature h3{font-size:16px;font-weight:500;margin-bottom:8px;letter-spacing:-0.01em;}
 .feature p{font-size:13px;color:var(--tx2);line-height:1.6;}
 .feature-icon{width:32px;height:32px;border-radius:6px;background:var(--accent);margin-bottom:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:14px;}
@@ -165,36 +165,26 @@ footer{padding:40px 0;text-align:center;font-size:12px;color:var(--tx3);border-t
         <text class="hc-group-label" x="504" y="78">Go-to-market</text>
         <path class="hc-group-chev" d="M 856 72 l 5 5 l 5 -5"/>
 
-        <!-- ── WIRES — labels follow the curve via textPath ── -->
+        <!-- ── WIRES — labels are horizontal text sitting on the wire midpoint ── -->
         <!-- 1. SUPPORTS: Interviews → Pricing model -->
-        <path id="w1" class="hc-wire" d="M 265 241 C 387 241 387 121 510 121" stroke="#0891b2"/>
-        <text class="hc-wire-label" fill="#0891b2" dy="-2">
-          <textPath href="#w1" startOffset="50%">supports</textPath>
-        </text>
+        <path class="hc-wire" d="M 265 241 C 387 241 387 121 510 121" stroke="#0891b2"/>
+        <text class="hc-wire-label" x="387" y="184" fill="#0891b2">supports</text>
 
         <!-- 2. BLOCKS: Target customer? → Landing page, loop right, crossbar end -->
-        <path id="w2" class="hc-wire" d="M 340 101 C 392 108 392 164 340 171" stroke="#e11d48" marker-end="url(#m-crossbar)"/>
-        <text class="hc-wire-label" fill="#e11d48" dy="-2">
-          <textPath href="#w2" startOffset="50%">blocks</textPath>
-        </text>
+        <path class="hc-wire" d="M 340 101 C 392 108 392 164 340 171" stroke="#e11d48" marker-end="url(#m-crossbar)"/>
+        <text class="hc-wire-label" x="379" y="139" fill="#e11d48">blocks</text>
 
         <!-- 3. SPAWNED: Core product → Referral engine, arrow end -->
-        <path id="w3" class="hc-wire" d="M 190 101 C 400 101 470 121 680 121" stroke="#65a30d" marker-end="url(#m-arrow)"/>
-        <text class="hc-wire-label" fill="#65a30d" dy="-2">
-          <textPath href="#w3" startOffset="50%">spawned</textPath>
-        </text>
+        <path class="hc-wire" d="M 190 101 C 400 101 470 121 680 121" stroke="#65a30d" marker-end="url(#m-arrow)"/>
+        <text class="hc-wire-label" x="435" y="114" fill="#65a30d">spawned</text>
 
         <!-- 4. DEPENDS_ON: Recruit beta users → Interviews, dashed amber -->
-        <path id="w4" class="hc-wire" d="M 510 191 C 387 191 387 241 265 241" stroke="#d97706" stroke-dasharray="7,4"/>
-        <text class="hc-wire-label" fill="#d97706" dy="-2">
-          <textPath href="#w4" startOffset="50%">depends on</textPath>
-        </text>
+        <path class="hc-wire" d="M 510 191 C 387 191 387 241 265 241" stroke="#d97706" stroke-dasharray="7,4"/>
+        <text class="hc-wire-label" x="387" y="219" fill="#d97706">depends on</text>
 
         <!-- 5. PROMOTED_TO: Target customer? → Prosumer segment, dashed purple -->
-        <path id="w5" class="hc-wire" d="M 200 101 C 150 101 100 171 50 171" stroke="#7c3aed" stroke-dasharray="7,4"/>
-        <text class="hc-wire-label" fill="#7c3aed" dy="-2">
-          <textPath href="#w5" startOffset="50%">promoted to</textPath>
-        </text>
+        <path class="hc-wire" d="M 200 101 C 150 101 100 171 50 171" stroke="#7c3aed" stroke-dasharray="7,4"/>
+        <text class="hc-wire-label" x="125" y="139" fill="#7c3aed">promoted to</text>
 
         <!-- ── NODES: Group 1 ── -->
         <!-- Core product concept (idea) -->

@@ -27,8 +27,9 @@ body{
 
 /* Nav */
 nav{display:flex;justify-content:space-between;align-items:center;padding:24px 32px;max-width:1100px;margin:0 auto;}
-.logo{font-size:20px;font-weight:500;letter-spacing:-0.02em;}
-.logo span{color:var(--accent);font-weight:400;}
+.logo{font-size:24px;font-weight:500;letter-spacing:-0.02em;display:flex;align-items:baseline;gap:10px;}
+.logo span:not(.tagline){color:var(--accent);font-weight:400;}
+.logo .tagline{font-size:13px;font-weight:400;color:var(--tx2);letter-spacing:0;}
 .nav-cta{font-size:13px;padding:8px 16px;border-radius:var(--r);background:var(--tx);color:var(--bg3);text-decoration:none;font-weight:500;}
 .nav-cta:hover{background:var(--accent-d);}
 
@@ -123,7 +124,7 @@ footer{padding:40px 0;text-align:center;font-size:12px;color:var(--tx3);border-t
 <body>
 
 <nav>
-  <div class="logo">100xbtr<span>_think</span></div>
+  <div class="logo">100xbtr<span>_think</span><span class="tagline">AI-assisted cognitive workspace</span></div>
   <a class="nav-cta" href="#access">Request access</a>
 </nav>
 
